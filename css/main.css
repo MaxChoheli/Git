@@ -5,8 +5,8 @@
 
 #toggleTheme {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 5px;
+    left: 25px;
     z-index: 1000;
 }
 
@@ -24,4 +24,5 @@
     align-items: center;
     color: white;
     font-size: 50px;
+    cursor: pointer;
 }

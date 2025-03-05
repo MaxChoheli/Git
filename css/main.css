@@ -27,4 +27,5 @@
     font-weight: bold;
     cursor: pointer;
     margin: auto;
+    transition: 1s;
 }

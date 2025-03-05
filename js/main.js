@@ -12,8 +12,14 @@ function ballClick() {
     var newWidth = curWidth + 50
     var newHeight = curHeight + 50
 
+    if (newWidth > 400) {
+        newWidth = 100
+        newHeight = 100
+    }
+
     ball.style.width = `${newWidth}px`
     ball.style.height = `${newHeight}px`
 
     ball.textContent = newWidth
+
 }

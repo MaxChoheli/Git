@@ -9,8 +9,8 @@ function ballClick() {
     var curWidth = parseInt(ball.style.width) || 100
     var curHeight = parseInt(ball.style.height) || 100
 
-    var newWidth = curWidth + 50
-    var newHeight = curHeight + 50
+    var newWidth = curWidth + getRandomInt(20, 60)
+    var newHeight = curHeight + getRandomInt(20, 60)
 
     if (newWidth > 400) {
         newWidth = 100

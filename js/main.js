@@ -22,4 +22,5 @@ function ballClick() {
 
     ball.textContent = newWidth
 
+    ball.style.backgroundColor = getRandomColor()
 }

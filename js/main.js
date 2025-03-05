@@ -4,8 +4,7 @@ toggleButton.addEventListener("click", () => {
     body.classList.toggle("dark-mode")
 })
 
-function ballClick() {
-    var ball = document.querySelector(".ball")
+function ballClick(ball) {
     var curWidth = parseInt(ball.style.width) || 100
     var curHeight = parseInt(ball.style.height) || 100
 

@@ -1,6 +1,10 @@
 const toggleButton = document.querySelectorAll("#toggleTheme")
 const body = document.body
+
 var isClickable = true
+let interval
+let hoverTimeout
+
 
 toggleButton.forEach(button => {
     button.addEventListener("click", () => {
@@ -99,5 +103,20 @@ function ball6Click() {
 
     resetBall(ball1, "blue")
     resetBall(ball2, "green")
+}
 
+function ball6HoverStart() {
+    hoverTimeout = setTimeout(() => {
+        interval = setInterval(() => {
+            ballClick(document.querySelector(".ball"))
+            ballClick(document.querySelector(".ball2"))
+            ball3Click()
+            ball4Click()
+        }, 2000)
+    }, 2000)
+}
+
+function ball6HoverEnd() {
+    clearTimeout(hoverTimeout)
+    clearInterval(interval)
 }

@@ -56,3 +56,30 @@ function ball3Click() {
         isClickable = true
     }, 2000)
 }
+
+function ball4Click() {
+    var ball1 = document.querySelector(".ball")
+    var ball2 = document.querySelector(".ball2")
+
+    var ball1Width = ball1.offsetWidth
+    var ball2Width = ball2.offsetWidth
+
+    var reduce1 = getRandomInt(20, 60)
+    var reduce2 = getRandomInt(20, 60)
+
+    var newWidth1 = Math.max(100, ball1Width - reduce1)
+    var newWidth2 = Math.max(100, ball2Width - reduce2)
+
+    ball1.style.width = `${newWidth1}px`
+    ball1.style.height = `${newWidth1}px`
+
+    ball2.style.width = `${newWidth2}px`
+    ball2.style.height = `${newWidth2}px`
+
+    ball1.textContent = `${newWidth1}`
+    ball2.textContent = `${newWidth2}`
+}
+
+function ball5Click() {
+    document.body.style.backgroundColor = getRandomColor()
+}

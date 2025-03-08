@@ -83,3 +83,21 @@ function ball4Click() {
 function ball5Click() {
     document.body.style.backgroundColor = getRandomColor()
 }
+
+function ball6Click() {
+    document.body.style.backgroundColor = ""
+
+    var ball1 = document.querySelector(".ball")
+    var ball2 = document.querySelector(".ball2")
+
+    function resetBall(ball, color) {
+        ball.style.width = "100px"
+        ball.style.height = "100px"
+        ball.style.backgroundColor = color
+        ball.textContent = "100"
+    }
+
+    resetBall(ball1, "blue")
+    resetBall(ball2, "green")
+
+}

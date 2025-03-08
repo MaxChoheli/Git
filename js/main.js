@@ -4,6 +4,7 @@ const body = document.body
 var isClickable = true
 let interval
 let hoverTimeout
+let cycleCount = 0
 
 
 toggleButton.forEach(button => {
@@ -15,7 +16,6 @@ toggleButton.forEach(button => {
 function ballClick(ball) {
     var curWidth = parseInt(ball.style.width) || 100
     var curHeight = parseInt(ball.style.height) || 100
-
     var newWidth = curWidth + getRandomInt(20, 60)
     var newHeight = curHeight + getRandomInt(20, 60)
 
@@ -28,7 +28,6 @@ function ballClick(ball) {
     ball.style.height = `${newHeight}px`
 
     ball.textContent = newWidth
-
     ball.style.backgroundColor = getRandomColor()
 }
 
@@ -108,10 +107,31 @@ function ball6Click() {
 function ball6HoverStart() {
     hoverTimeout = setTimeout(() => {
         interval = setInterval(() => {
-            ballClick(document.querySelector(".ball"))
-            ballClick(document.querySelector(".ball2"))
-            ball3Click()
-            ball4Click()
+            const ball1 = document.querySelector(".ball")
+            const ball2 = document.querySelector(".ball2")
+
+            var curWidth1 = parseInt(ball1.style.width) || 100
+            var curWidth2 = parseInt(ball2.style.width) || 100
+
+            var newWidth1 = curWidth1 + getRandomInt(20, 60) - getRandomInt(20, 60)
+            var newWidth2 = curWidth2 + getRandomInt(20, 60) - getRandomInt(20, 60)
+
+            newWidth1 = Math.max(100, Math.min(400, newWidth1))
+            newWidth2 = Math.max(100, Math.min(400, newWidth2))
+
+            ball1.style.width = `${newWidth1}px`
+            ball1.style.height = `${newWidth1}px`
+            ball1.textContent = newWidth1;
+
+            ball2.style.width = `${newWidth2}px`
+            ball2.style.height = `${newWidth2}px`
+            ball2.textContent = newWidth2
+
+            cycleCount++
+
+            if (cycleCount >= 10) {
+                clearInterval(interval)
+            }
         }, 2000)
     }, 2000)
 }
@@ -119,4 +139,5 @@ function ball6HoverStart() {
 function ball6HoverEnd() {
     clearTimeout(hoverTimeout)
     clearInterval(interval)
+    cycleCount = 0
 }
